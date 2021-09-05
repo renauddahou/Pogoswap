@@ -5,7 +5,7 @@ import os
 import streamlit as st
 
 #Bot HSE
-user_input3 = get_text()
+user_input3 = "salut"
 response3 = user_input3
 st.text_area("HSEBot:", value=response3, height=200, max_chars=None, key=None)
 
