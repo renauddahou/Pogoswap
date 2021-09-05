@@ -230,8 +230,7 @@ if __name__ == '__main__':
     dp.add_handler(RegexHandler("^Distribution$",mailing))
     dp.add_handler(RegexHandler("^Base$",get_file))
     dp.add_handler(MessageHandler(Filters.text,extra))
-    if DEV is not True:
-        updater.start_polling()
+    updater.start_polling()
     print("Bot Started")
     updater.idle()
         
