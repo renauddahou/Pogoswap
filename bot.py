@@ -86,8 +86,8 @@ def profile(update, context):
         user = str(update.message.chat.username)
         mail = data['mail'][user]
         twi = data['twitter'][user]
-        eth_addr = data['bep20'][user]
-        msg = 'Your Provided Data:\n\n    Name: {}\n\n    E-mail: {}\n\n    Twitter: {}\n\n    bep20 Address: {}'.format(user,mail,twi,eth_addr)
+        bep20_addr = data['bep20'][user]
+        msg = 'Your Provided Data:\n\n    Name: {}\n\n    E-mail: {}\n\n    Twitter: {}\n\n    bep20 Address: {}'.format(user,mail,twi,bep20_addr)
         reply_markup = ReplyKeyboardMarkup(dash_key,resize_keyboard=True)
         update.message.reply_text(msg,reply_markup=reply_markup)
 
