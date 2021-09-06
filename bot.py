@@ -234,7 +234,7 @@ def mailing(update, context):
 
 
 if __name__ == '__main__':
-    data = json.load(open('users.json','r'))
+    data = json.load(open('users2.json','r'))
     updater = Updater(TOKEN,use_context=True)
     dp = updater.dispatcher
     dp.add_handler(CommandHandler("start",start)) #обработчики команд
