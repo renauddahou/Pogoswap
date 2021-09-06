@@ -131,12 +131,12 @@ def extra(update, context): #команда
             update.message.reply_text(msg)
         elif data["process"][user] == 'mail':
             data['mail'][user] = update.message.text
-            data['process'][user] = "eth"
+            data['process'][user] = "bep20"
             json.dump(data,open('users.json','w'))
             json.dump(data,open('users2.json','w'))
             update.message.reply_text("👍Almost done,Now submit your BEP-20 address below:\n\n⚠️ Note: Don't send me any exchanger wallet address:")
         elif data["process"][user] == 'bep20':
-            data['eth'][user] = update.message.text
+            data['bep20'][user] = update.message.text
             data['process'][user] = "finished"
             json.dump(data,open('users.json','w'))
             json.dump(data,open('users2.json','w'))
