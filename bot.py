@@ -26,7 +26,7 @@ data = []
 dash_key = [['💰Balance','👥Referral'],['👨‍💻Profile','📈About'],['💣Withdraw']]
 continue_key = [['Continue👌']]
 completed_key = [['Completed✅']]
-admin_key = [["Number", "Database", "Distribution"]]
+admin_key = [["Total_users", "Database", "Newsletter"]]
 
 #webhook_url = 'Your Webook' #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 #PORT = int(os.environ.get('PORT','8443'))
@@ -210,7 +210,7 @@ def mailing(update, context):
     if update.message.chat.type == 'private':
         user = str(update.message.chat.username)
         if user in admins:
-            update.message.reply_text('Введи пост:')
+            update.message.reply_text('Enter the post:')
             data["process"][user] = "post"
 
 
@@ -226,8 +226,8 @@ if __name__ == '__main__':
     dp.add_handler(RegexHandler("^💣Withdraw$",withdraw))
     dp.add_handler(RegexHandler("^👥Referral$",ref))
     dp.add_handler(RegexHandler("^💰Balance$",bal))
-    dp.add_handler(RegexHandler("^Number$",users))
-    dp.add_handler(RegexHandler("^Distribution$",mailing))
+    dp.add_handler(RegexHandler("^Total_users$",users))
+    dp.add_handler(RegexHandler("^Newsletter$",mailing))
     dp.add_handler(RegexHandler("^Database$",get_file))
     dp.add_handler(MessageHandler(Filters.text,extra))
     updater.start_polling()
