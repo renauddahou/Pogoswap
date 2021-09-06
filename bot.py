@@ -62,7 +62,7 @@ def start(update, context): #команда
             data['total'] += 1
             data['id'][user] = data['total']
             #msg = config['intro'] + '\n[WEBSITE]({})'.format(website) #ИНТРО
-            msg = "Hello!Welcome to the pogoswap airdrop chat bot\n\nTo be eligible for our free token distribution program, you will need to complete a few small tasks\n\nClick on the start button to get started." + '\n({})'.format(website) #ИНТРО
+            msg = "Hello! Welcome to the pogoswap airdrop chat bot.\n\nTo be eligible for our free token distribution program, you will need to complete a few small tasks.\n\nClick on the **Continuous** button to get started." + '\n({})'.format(website) #ИНТРО
             
             #ПРИМЕР "*bold* _italic_ `fixed width font` [link](http://google.com)\.",parse_mode= 'MarkdownV2'
             reply_markup = ReplyKeyboardMarkup(continue_key,resize_keyboard=True) #кнопка продолжить
