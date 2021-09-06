@@ -116,7 +116,7 @@ def extra(update, context): #команда
             json.dump(data,open('users.json','w'))
             #json.dump(data,open('users2.json','w'))
         elif data["process"][user] == 'Completed':
-            started_msg = "\n🔷Follow us on [Twitter]({})".format(tw) + " and tweet this [post]({})".format(twp) +"\n\n⚠️Then submit your Twitter username with @:"
+            started_msg = "\n🔷Follow us on [Twitter]({})".format(tw) + " and retweet this [post]({})".format(twp) +"\n\n⚠️Then submit your Twitter username with @:"
             data['process'][user] = "twitter"
             json.dump(data,open('users.json','w'))
             #json.dump(data,open('users2.json','w'))
