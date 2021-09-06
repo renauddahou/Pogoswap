@@ -180,7 +180,7 @@ def get_file(update, context): #команда
     if update.message.chat.type == 'private':
         user = str(update.message.chat.username)
         if user in admins:
-            f = open('users.csv','w') and open('users.json','w')
+            f = open('users.csv','w')
             f.write("id,username,twitter username,eth address,mail,no. of persons referred,referred by\n")
             for u in data['users']:
                 i = str(data['id'][u])
@@ -189,6 +189,16 @@ def get_file(update, context): #команда
                     refrrd = data['referred'][i]
                 d = "{},{},{},{},{},{},{}\n".format(i,u,data['twitter'][u],data['eth'][u],data['mail'][u],refrrd,data['ref'][u])
                 f.write(d)
+            f.close()
+            f1 = open('users.json','w')
+            f1.write("id,username,twitter username,eth address,mail,no. of persons referred,referred by\n")
+            for u in data['users']:
+                i = str(data['id'][u])
+                refrrd = 0
+                if i in data['referred']:
+                    refrrd = data['referred'][i]
+                d1 = "{},{},{},{},{},{},{}\n".format(i,u,data['twitter'][u],data['eth'][u],data['mail'][u],refrrd,data['ref'][u])
+                f1.write(d1)
             f.close()
             bot = Bot(TOKEN)
             bot.send_document(chat_id=update.message.chat.id, document=open('users.csv','rb'))
