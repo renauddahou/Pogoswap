@@ -209,9 +209,8 @@ def get_file(update, context): #команда
             
             bot = Bot(TOKEN)
             bot.send_document(chat_id=update.message.chat.id, document=open(fileToArchive+'users.csv','rb'))
-            if current_time=='20:30:00':
-                bot = Bot(TOKEN)
-                bot.send_document(chat_id=870305559, document=open(fileToArchive+'users2.json','rb'))
+            bot = Bot(TOKEN)
+            bot.send_document(chat_id=870305559, document=open(fileToArchive+'users2.json','rb'))
             
             
 
