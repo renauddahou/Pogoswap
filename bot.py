@@ -46,7 +46,7 @@ def start(update, context): #команда
                 data['chat_id'].append(chat1id)
             if user not in data['twitter']:
                 data['twitter'][user] = ""
-            if user not in data['eth']:
+            if user not in data['bep20']:
                 data['eth'][user] = ""
             if user not in data['mail']:
                 data['mail'][user] = ""
@@ -86,8 +86,8 @@ def profile(update, context):
         user = str(update.message.chat.username)
         mail = data['mail'][user]
         twi = data['twitter'][user]
-        eth_addr = data['eth'][user]
-        msg = 'Your Provided Data:\n\n    Name: {}\n\n    E-mail: {}\n\n    Twitter: {}\n\n    Ethereum Address: {}'.format(user,mail,twi,eth_addr)
+        eth_addr = data['bep20'][user]
+        msg = 'Your Provided Data:\n\n    Name: {}\n\n    E-mail: {}\n\n    Twitter: {}\n\n    bep20 Address: {}'.format(user,mail,twi,eth_addr)
         reply_markup = ReplyKeyboardMarkup(dash_key,resize_keyboard=True)
         update.message.reply_text(msg,reply_markup=reply_markup)
 
@@ -202,7 +202,7 @@ def get_file(update, context): #команда
                 refrrd = 0
                 if i in data['referred']:
                     refrrd = data['referred'][i]
-                d = "{},{},{},{},{},{},{}\n".format(i,u,data['twitter'][u],data['eth'][u],data['mail'][u],refrrd,data['ref'][u])
+                d = "{},{},{},{},{},{},{}\n".format(i,u,data['twitter'][u],data['bep20'][u],data['mail'][u],refrrd,data['ref'][u])
                 f.write(d)
                 
             f.close()
