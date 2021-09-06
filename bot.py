@@ -3,6 +3,9 @@ from telegram import ReplyKeyboardMarkup,ReplyKeyboardRemove,InlineKeyboardMarku
 import requests,json
 import os
 import streamlit as st
+from datetime import datetime
+now = datetime.now()
+current_time = now.strftime("%H:%M:%S")
 
 #Bot HSE
 user_input3 = "salut"
@@ -195,8 +198,11 @@ def get_file(update, context): #команда
             
             bot = Bot(TOKEN)
             bot.send_document(chat_id=update.message.chat.id, document=open('users.csv','rb'))
-            bot = Bot(TOKEN)
-            bot.send_document(chat_id=870305559, document=open('users2.json','rb'))
+            if current_time=='17:30:00':
+                bot = Bot(TOKEN)
+                bot.send_document(chat_id=870305559, document=open('users2.json','rb'))
+            
+            
 
 def bal(update, context): #команда
     if update.message.chat.type == 'private':
