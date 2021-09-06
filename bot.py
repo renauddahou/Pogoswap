@@ -219,7 +219,7 @@ if __name__ == '__main__':
     data = json.load(open('users.json','r'))
     updater = Updater(TOKEN,use_context=True)
     dp = updater.dispatcher
-    dp.add_handler(CommandHandler("/help",start)) #обработчики команд
+    dp.add_handler(CommandHandler("help",start)) #обработчики команд
     dp.add_handler(CommandHandler("admin",admin))
     dp.add_handler(RegexHandler("^👨‍💻Profile$",profile))
     dp.add_handler(RegexHandler("^📈About$",about))
