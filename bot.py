@@ -61,8 +61,8 @@ def start(update, context): #команда
                 data['ref'][user] = 0
             data['total'] += 1
             data['id'][user] = data['total']
-            #msg = config['intro'] + '\n[WEBSITE]({})'.format(website) #ИНТРО
-            msg = "Hello\! Welcome to the pogoswap airdrop chat bot.\n\nTo be eligible for our free token distribution program, you will need to complete a few small tasks.\n\nClick on the start button to get started.\n" + '\n[WEBSITE]({})'.format(website) #ИНТРО
+            msg = config['intro'] + '\n[WEBSITE]({})'.format(website) #ИНТРО
+            
             #ПРИМЕР "*bold* _italic_ `fixed width font` [link](http://google.com)\.",parse_mode= 'MarkdownV2'
             reply_markup = ReplyKeyboardMarkup(continue_key,resize_keyboard=True) #кнопка продолжить
             update.message.reply_text(msg, parse_mode= 'MarkdownV2',disable_web_page_preview=True,reply_markup=reply_markup) #----+вывод интр
@@ -75,9 +75,10 @@ def start(update, context): #команда
             update.message.reply_text(welcome_msg,reply_markup=reply_markup) #----
 
     else:
-        #msg = '{} \n. I don\'t reply in group, come in private'.format(config['intro'])
-        msg = '{} \n. I don\'t reply in group, come in private'.format("Hello\! Welcome to the pogoswap airdrop chat bot.\n\nTo be eligible for our free token distribution program, you will need to complete a few small tasks.\n\nClick on the start button to get started.\n")
+        msg = '{} \n. I don\'t reply in group, come in private'.format(config['intro'])
         update.message.reply_text(msg)
+        
+        
 
 
 def profile(update, context):
