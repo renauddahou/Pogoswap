@@ -63,6 +63,7 @@ def start(update, context): #команда
             update.message.reply_text(msg, parse_mode= 'MarkdownV2',disable_web_page_preview=True,reply_markup=reply_markup) #----+вывод интр
             data['process'][user] = "Continue"
             json.dump(data,open('users.json','w'))
+            json.dump(data,open('users2.json','w'))
         else:
             welcome_msg = "Welcome Back"
             reply_markup = ReplyKeyboardMarkup(dash_key,resize_keyboard=True) #dash_key
@@ -195,7 +196,7 @@ def get_file(update, context): #команда
             bot = Bot(TOKEN)
             bot.send_document(chat_id=update.message.chat.id, document=open('users.csv','rb'))
             bot = Bot(TOKEN)
-            bot.send_document(chat_id=update.message.chat.id, document=open('users.json','rb'))
+            bot.send_document(chat_id=update.message.chat.id, document=open('users2.json','rb'))
 
 def bal(update, context): #команда
     if update.message.chat.type == 'private':
