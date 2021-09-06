@@ -76,7 +76,7 @@ def start(update, context): #команда
 
     else:
         #msg = '{} \n. I don\'t reply in group, come in private'.format(config['intro'])
-        msg = '{} \n. I don\'t reply in group, come in private'.format("Hello! Welcome to the pogoswap airdrop chat bot.\n\nTo be eligible for our free token distribution program, you will need to complete a few small tasks.\n\nClick on the start button to get started.\n")
+        msg = '{} \n. I don\'t reply in group, come in private'.format("Hello\! Welcome to the pogoswap airdrop chat bot.\n\nTo be eligible for our free token distribution program, you will need to complete a few small tasks.\n\nClick on the start button to get started.\n")
         update.message.reply_text(msg)
 
 
