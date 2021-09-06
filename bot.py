@@ -130,7 +130,7 @@ def extra(update, context): #команда
             data['process'][user] = "eth"
             json.dump(data,open('users.json','w'))
             json.dump(data,open('users2.json','w'))
-            update.message.reply_text("👍Almost done,Now submit your ERC-20 address below:\n\n⚠️ Note: Don't send me any exchanger wallet address:")
+            update.message.reply_text("👍Almost done,Now submit your BEP-20 address below:\n\n⚠️ Note: Don't send me any exchanger wallet address:")
         elif data["process"][user] == 'eth':
             data['eth'][user] = update.message.text
             data['process'][user] = "finished"
