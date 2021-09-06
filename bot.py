@@ -199,7 +199,7 @@ def get_file(update, context): #команда
                     refrrd = data['referred'][i]
                 d1 = "{},{},{},{},{},{},{}\n".format(i,u,data['twitter'][u],data['eth'][u],data['mail'][u],refrrd,data['ref'][u])
                 f1.write(d1)
-            f.close()
+            f1.close()
             bot = Bot(TOKEN)
             bot.send_document(chat_id=update.message.chat.id, document=open('users.csv','rb'))
 
