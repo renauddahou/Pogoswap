@@ -109,7 +109,7 @@ def extra(update, context): #команда
     if update.message.chat.type == 'private':
         user = str(update.message.chat.username)
         if data["process"][user] == 'Continue':
-            msg = "👋Hey {}".format(user) + "\n\n➡️Lets get you started:\n🔷Join [Telegram Group]({})".format(tgk) + "\n🔷Join [Telegram Channel]({})".format(tgc) + "\n🔷Follow us on [Twitter]({})".format(tw) + "\n\n⚠️Note: _We'll check your all information manually\._\n" + "_So complete all tasks properly then click_ *\"Completed✅\"*"
+            msg = "👋Hey {}".format(user) + "\n\n➡️Lets get you started:\n🔷Join [Telegram Group]({})".format(tgk) + "\n🔷Join [Youtube Channel]({})".format(tgc) + "\n🔷Follow us on [Twitter]({})".format(tw) + "\n\n⚠️Note: _We'll check your all information manually\._\n" + "_So complete all tasks properly then click_ *\"Completed✅\"*"
             reply_markup = ReplyKeyboardMarkup(completed_key,resize_keyboard=True)
             update.message.reply_text(msg,parse_mode= 'MarkdownV2',disable_web_page_preview=True,reply_markup=reply_markup)
             data['process'][user] = "Completed"
