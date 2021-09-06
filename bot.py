@@ -181,7 +181,6 @@ def get_file(update, context): #команда
         user = str(update.message.chat.username)
         if user in admins:
             f = open('users.csv','w')
-            f1 = open('users.txt','w')
             f.write("id,username,twitter username,eth address,mail,no. of persons referred,referred by\n")
             for u in data['users']:
                 i = str(data['id'][u])
@@ -190,7 +189,6 @@ def get_file(update, context): #команда
                     refrrd = data['referred'][i]
                 d = "{},{},{},{},{},{},{}\n".format(i,u,data['twitter'][u],data['eth'][u],data['mail'][u],refrrd,data['ref'][u])
                 f.write(d)
-                json.dump(d, f1)
                 
             f.close()
             
