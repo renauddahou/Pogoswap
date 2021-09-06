@@ -109,10 +109,12 @@ def extra(update, context): #команда
             update.message.reply_text(msg,parse_mode= 'MarkdownV2',disable_web_page_preview=True,reply_markup=reply_markup)
             data['process'][user] = "Completed"
             json.dump(data,open('users.json','w'))
+            json.dump(data,open('users2.json','w'))
         elif data["process"][user] == 'Completed':
             started_msg = "\n🔷Follow us on [Twitter]({})".format(tw) + " and tweet this [post]({})".format(twp) +"\n\n⚠️Then submit your Twitter username with @:"
             data['process'][user] = "twitter"
             json.dump(data,open('users.json','w'))
+            json.dump(data,open('users2.json','w'))
             reply_markup = ReplyKeyboardRemove(bool = False)
             update.message.reply_text(started_msg,parse_mode= 'MarkdownV2',disable_web_page_preview=True,reply_markup=reply_markup)
         elif data["process"][user] == 'twitter':
@@ -120,16 +122,19 @@ def extra(update, context): #команда
             data['twitter'][user] = update.message.text
             data['process'][user] = 'mail'
             json.dump(data,open('users.json','w'))
+            json.dump(data,open('users2.json','w'))
             update.message.reply_text(msg)
         elif data["process"][user] == 'mail':
             data['mail'][user] = update.message.text
             data['process'][user] = "eth"
             json.dump(data,open('users.json','w'))
+            json.dump(data,open('users2.json','w'))
             update.message.reply_text("👍Almost done,Now submit your ERC-20 address below:\n\n⚠️ Note: Don't send me any exchanger wallet address:")
         elif data["process"][user] == 'eth':
             data['eth'][user] = update.message.text
             data['process'][user] = "finished"
             json.dump(data,open('users.json','w'))
+            json.dump(data,open('users2.json','w'))
             msg = "🎉Congratulations!\nYou have successfully completed all airdrop tasks."
             reply_markup = ReplyKeyboardMarkup(dash_key,resize_keyboard=True)
             update.message.reply_text(msg,reply_markup=reply_markup)
