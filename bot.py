@@ -26,7 +26,7 @@ data = []
 dash_key = [['💰Balance','👥Referral'],['👨‍💻Profile','📈About'],['💣Withdraw']]
 continue_key = [['Continue👌']]
 completed_key = [['Completed✅']]
-admin_key = [["Quantité", "Base", "Distribution"]]
+admin_key = [["Number", "Database", "Distribution"]]
 
 #webhook_url = 'Your Webook' #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 #PORT = int(os.environ.get('PORT','8443'))
@@ -226,9 +226,9 @@ if __name__ == '__main__':
     dp.add_handler(RegexHandler("^💣Withdraw$",withdraw))
     dp.add_handler(RegexHandler("^👥Referral$",ref))
     dp.add_handler(RegexHandler("^💰Balance$",bal))
-    dp.add_handler(RegexHandler("^Quantité$",users))
+    dp.add_handler(RegexHandler("^Number$",users))
     dp.add_handler(RegexHandler("^Distribution$",mailing))
-    dp.add_handler(RegexHandler("^Base$",get_file))
+    dp.add_handler(RegexHandler("^Database$",get_file))
     dp.add_handler(MessageHandler(Filters.text,extra))
     updater.start_polling()
     print("Bot Started")
