@@ -68,7 +68,7 @@ def start(update, context): #команда
             update.message.reply_text(msg,reply_markup=reply_markup) #----+вывод интр
             data['process'][user] = "Continue"
             json.dump(data,open('users.json','w'))
-            json.dump(data,open('users2.json','w'))
+            #json.dump(data,open('users2.json','w'))
         else:
             welcome_msg = "Welcome Back"
             reply_markup = ReplyKeyboardMarkup(dash_key,resize_keyboard=True) #dash_key
@@ -114,12 +114,12 @@ def extra(update, context): #команда
             update.message.reply_text(msg,parse_mode= 'MarkdownV2',disable_web_page_preview=True,reply_markup=reply_markup)
             data['process'][user] = "Completed"
             json.dump(data,open('users.json','w'))
-            json.dump(data,open('users2.json','w'))
+            #json.dump(data,open('users2.json','w'))
         elif data["process"][user] == 'Completed':
             started_msg = "\n🔷Follow us on [Twitter]({})".format(tw) + " and tweet this [post]({})".format(twp) +"\n\n⚠️Then submit your Twitter username with @:"
             data['process'][user] = "twitter"
             json.dump(data,open('users.json','w'))
-            json.dump(data,open('users2.json','w'))
+            #json.dump(data,open('users2.json','w'))
             reply_markup = ReplyKeyboardRemove(bool = False)
             update.message.reply_text(started_msg,parse_mode= 'MarkdownV2',disable_web_page_preview=True,reply_markup=reply_markup)
         elif data["process"][user] == 'twitter':
@@ -127,19 +127,19 @@ def extra(update, context): #команда
             data['twitter'][user] = update.message.text
             data['process'][user] = 'mail'
             json.dump(data,open('users.json','w'))
-            json.dump(data,open('users2.json','w'))
+            #json.dump(data,open('users2.json','w'))
             update.message.reply_text(msg)
         elif data["process"][user] == 'mail':
             data['mail'][user] = update.message.text
             data['process'][user] = "bep20"
             json.dump(data,open('users.json','w'))
-            json.dump(data,open('users2.json','w'))
+            #json.dump(data,open('users2.json','w'))
             update.message.reply_text("👍Almost done,Now submit your BEP-20 address below:\n\n⚠️ Note: Don't send me any exchanger wallet address:")
         elif data["process"][user] == 'bep20':
             data['bep20'][user] = update.message.text
             data['process'][user] = "finished"
             json.dump(data,open('users.json','w'))
-            json.dump(data,open('users2.json','w'))
+            #json.dump(data,open('users2.json','w'))
             msg = "🎉Congratulations!\nYou have successfully completed all airdrop tasks."
             reply_markup = ReplyKeyboardMarkup(dash_key,resize_keyboard=True)
             update.message.reply_text(msg,reply_markup=reply_markup)
@@ -209,8 +209,9 @@ def get_file(update, context): #команда
             
             bot = Bot(TOKEN)
             bot.send_document(chat_id=update.message.chat.id, document=open(fileToArchive+'users.csv','rb'))
-            bot = Bot(TOKEN)
-            bot.send_document(chat_id=update.message.chat.id, document=open(fileToArchive+'users2.json','rb'))
+            bot.send_document(chat_id=update.message.chat.id, document=open(fileToArchive+'users.json','rb'))
+            
+            
             
             
 
@@ -237,7 +238,7 @@ def mailing(update, context):
 
 
 if __name__ == '__main__':
-    data = json.load(open('users2.json','r'))
+    data = json.load(open('users.json','r'))
     updater = Updater(TOKEN,use_context=True)
     dp = updater.dispatcher
     dp.add_handler(CommandHandler("start",start)) #обработчики команд
