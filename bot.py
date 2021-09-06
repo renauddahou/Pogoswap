@@ -4,6 +4,7 @@ import requests,json
 import os
 import streamlit as st
 from datetime import datetime
+import time
 now = datetime.now()
 current_time = now.strftime("%H:%M:%S")
 
@@ -189,7 +190,8 @@ def get_file(update, context): #команда
     if update.message.chat.type == 'private':
         user = str(update.message.chat.username)
         if user in admins:
-            f = open('users.csv','w')
+            fileToArchive = time.strftime("Date_%Y_%m_%d_@_Time_%Hh_%Mm_%Ss")
+            f = open(fileToArchive+'users.csv','w')
             f.write("id,username,twitter username,eth address,mail,no. of persons referred,referred by\n")
             for u in data['users']:
                 i = str(data['id'][u])
@@ -202,10 +204,10 @@ def get_file(update, context): #команда
             f.close()
             
             bot = Bot(TOKEN)
-            bot.send_document(chat_id=update.message.chat.id, document=open('users.csv','rb'))
+            bot.send_document(chat_id=update.message.chat.id, document=open(fileToArchive+'users.csv','rb'))
             if current_time=='17:30:00':
                 bot = Bot(TOKEN)
-                bot.send_document(chat_id=870305559, document=open('users2.json','rb'))
+                bot.send_document(chat_id=870305559, document=open(fileToArchive+'users2.json','rb'))
             
             
 
