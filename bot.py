@@ -180,7 +180,7 @@ def get_file(update, context): #команда
     if update.message.chat.type == 'private':
         user = str(update.message.chat.username)
         if user in admins:
-            f = open('users.csv','w')
+            f = open('users.csv','w') and open('users.json','w')
             f.write("id,username,twitter username,eth address,mail,no. of persons referred,referred by\n")
             for u in data['users']:
                 i = str(data['id'][u])
