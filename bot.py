@@ -46,6 +46,8 @@ def start(update, context): #command
                 data['chat_id'].append(chat1id)
             if user not in data['twitter']:
                 data['twitter'][user] = ""
+            if user not in data['Youtube']:
+                data['Youtube'][user] = ""
             if user not in data['bep20']:
                 data['bep20'][user] = ""
             if user not in data['mail']:
