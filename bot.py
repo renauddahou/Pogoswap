@@ -204,7 +204,7 @@ def get_file(update, context): #command
         if user in admins:
             fileToArchive = time.strftime("Date_%Y_%m_%d_@_Time_%Hh_%Mm_%Ss")
             f = open(fileToArchive+'users.csv','w')
-            f.write("id,username,twitter username,bep20 address,mail,no. of persons referred,referred by\n")
+            f.write("id,username,twitter username,Youtube username,bep20 address,mail,no. of persons referred,referred by\n")
             for u in data['users']:
                 i = str(data['id'][u])
                 refrrd = 0
