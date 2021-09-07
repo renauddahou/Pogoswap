@@ -92,14 +92,14 @@ def profile(update, context):
         reply_markup = ReplyKeyboardMarkup(dash_key,resize_keyboard=True)
         update.message.reply_text(msg,reply_markup=reply_markup)
 
-def about(update, context): #команда
+def about(update, context): #command
     if update.message.chat.type == 'private':
         msg = config['about'] + '\n[WEBSITE]({})'.format(website)
         reply_markup = ReplyKeyboardMarkup(dash_key,resize_keyboard=True)
         #update.message.reply_text(msg,parse_mode= 'MarkdownV2',disable_web_page_preview=True,reply_markup=reply_markup)
         update.message.reply_text(msg,reply_markup=reply_markup)
 
-def withdraw(update, context): #команда
+def withdraw(update, context): #command
     if update.message.chat.type == 'private':
         msg = "💣You will be able to withdraw on {}".format(config['withdraw_data'])
         reply_markup = ReplyKeyboardMarkup(dash_key,resize_keyboard=True)
