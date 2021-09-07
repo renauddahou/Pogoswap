@@ -263,7 +263,7 @@ if __name__ == '__main__':
     dp.add_handler(RegexHandler("^👨‍💻Profile$",profile))
     dp.add_handler(RegexHandler("^📈About$",about))
     dp.add_handler(RegexHandler("^💣Withdraw$",withdraw))
-    dp.add_handler(RegexHandler("^🧑‍💻 Support$",Support))
+    dp.add_handler(RegexHandler("^🧑‍💻 Support$",support))
     dp.add_handler(RegexHandler("^👥Referral$",ref))
     dp.add_handler(RegexHandler("^💰Balance$",bal))
     dp.add_handler(RegexHandler("^Total_users$",users))
