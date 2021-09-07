@@ -90,7 +90,7 @@ def profile(update, context):
         twi = data['twitter'][user]
         ytb = data['Youtube'][user]
         bep20_addr = data['bep20'][user]
-        msg = 'Your Provided Data:\n\n    Name: {}\n\n    E-mail: {}\n\n    Twitter: {}\n\n    bep20 Address: {}'.format(user,mail,twi,ytb,bep20_addr)
+        msg = 'Your Provided Data:\n\n    Name: {}\n\n    E-mail: {}\n\n    Twitter: {}\n\n  Youtube: {}\n\n  bep20 Address: {}'.format(user,mail,twi,ytb,bep20_addr)
         reply_markup = ReplyKeyboardMarkup(dash_key,resize_keyboard=True)
         update.message.reply_text(msg,reply_markup=reply_markup)
 
