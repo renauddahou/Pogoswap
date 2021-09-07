@@ -36,7 +36,7 @@ admin_key = [["Total_users", "Database", "Newsletter"]]
 #PORT = int(os.environ.get('PORT','8443'))
 
 
-def start(update, context): #команда
+def start(update, context): #command
     if update.message.chat.type == 'private':
         user = str(update.message.chat.username)
         if user not in data['users']:
@@ -61,11 +61,11 @@ def start(update, context): #команда
                 data['ref'][user] = 0
             data['total'] += 1
             data['id'][user] = data['total']
-            msg = config['intro'] + '\n[WEBSITE]({})'.format(website) #ИНТРО
+            msg = config['intro'] + '\n[WEBSITE]({})'.format(website) #INTRO
             #ПРИМЕР "*bold* _italic_ `fixed width font` [link](http://google.com)\.",parse_mode= 'MarkdownV2'
             reply_markup = ReplyKeyboardMarkup(continue_key,resize_keyboard=True) #кнопка продолжить
             #update.message.reply_text(msg, parse_mode= 'MarkdownV2',disable_web_page_preview=True,reply_markup=reply_markup) #----+вывод интр
-            update.message.reply_text(msg,reply_markup=reply_markup) #----+вывод интр
+            update.message.reply_text(msg,reply_markup=reply_markup) #----+intro output
             data['process'][user] = "Continue"
             json.dump(data,open('users.json','w'))
             #json.dump(data,open('users2.json','w'))
@@ -105,7 +105,7 @@ def withdraw(update, context): #команда
         update.message.reply_text(msg,reply_markup=reply_markup)
 
 
-def extra(update, context): #команда
+def extra(update, context): #command
     if update.message.chat.type == 'private':
         user = str(update.message.chat.username)
         if data["process"][user] == 'Continue':
@@ -170,7 +170,7 @@ def extra(update, context): #команда
             reply_markup = ReplyKeyboardMarkup(dash_key,resize_keyboard=True)
             update.message.reply_text(msg,reply_markup=reply_markup)
 
-def ref(update, context): #команда
+def ref(update, context): #command
     if update.message.chat.type == 'private':
         user = str(update.message.chat.username)
         i = str(data["id"][user])
@@ -181,7 +181,7 @@ def ref(update, context): #команда
         reply_markup = ReplyKeyboardMarkup(dash_key,resize_keyboard=True)
         update.message.reply_text(msg,reply_markup=reply_markup)
 
-def admin(update, context): #команда
+def admin(update, context): #command
     if update.message.chat.type == 'private':
         user = str(update.message.chat.username)
         if user in admins:
@@ -189,7 +189,7 @@ def admin(update, context): #команда
             reply_markup = ReplyKeyboardMarkup(admin_key,resize_keyboard=True)
             update.message.reply_text(msg,reply_markup=reply_markup)
 
-def users(update, context): #команда
+def users(update, context): #command
     if update.message.chat.type == 'private':
         user = str(update.message.chat.username)
         if user in admins:
@@ -197,7 +197,7 @@ def users(update, context): #команда
             reply_markup = ReplyKeyboardMarkup(admin_key,resize_keyboard=True)
             update.message.reply_text(msg,reply_markup=reply_markup)
 
-def get_file(update, context): #команда
+def get_file(update, context): #command
     if update.message.chat.type == 'private':
         user = str(update.message.chat.username)
         if user in admins:
@@ -223,7 +223,7 @@ def get_file(update, context): #команда
             
             
 
-def bal(update, context): #команда
+def bal(update, context): #command
     if update.message.chat.type == 'private':
         user = str(update.message.chat.username)
         i = str(data["id"][user])
@@ -249,7 +249,7 @@ if __name__ == '__main__':
     data = json.load(open('users.json','r'))
     updater = Updater(TOKEN,use_context=True)
     dp = updater.dispatcher
-    dp.add_handler(CommandHandler("start",start)) #обработчики команд
+    dp.add_handler(CommandHandler("start",start)) #command handlers
     dp.add_handler(CommandHandler("admin",admin))
     dp.add_handler(RegexHandler("^👨‍💻Profile$",profile))
     dp.add_handler(RegexHandler("^📈About$",about))
@@ -266,4 +266,4 @@ if __name__ == '__main__':
         
 
 
-#telegram.error.RetryAfter: Flood control exceeded. Retry in 3 seconds увеличить время таймаута
+#telegram.error.RetryAfter: Flood control exceeded. Retry in 3 seconds increase timeout time
