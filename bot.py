@@ -27,7 +27,7 @@ tw = config['twitter']
 twp = config['twitter_post']
 website = config['website']
 data = []
-dash_key = [['💰Balance','👥Referral'],['👨‍💻Profile','📈About'],['💣Withdraw','🧑‍💻 Support']]
+dash_key = [['💰Balance','👥Referral'],['👨‍💻Profile','📈About'],['💣Withdraw','🧰Support']]
 continue_key = [['Continue👌']]
 completed_key = [['Completed✅']]
 admin_key = [["Total_users", "Database", "Newsletter"]]
@@ -109,7 +109,7 @@ def withdraw(update, context): #command
 
 def support(update, context): #command
     if update.message.chat.type == 'private':
-        msg = "🧑‍💻 Contact support: @Bluecolo"
+        msg ="🧰 Contact support: @Bluecolo"
         reply_markup = ReplyKeyboardMarkup(dash_key,resize_keyboard=True)
         #update.message.reply_text(msg,parse_mode= 'MarkdownV2',disable_web_page_preview=True,reply_markup=reply_markup)
         update.message.reply_text(msg,reply_markup=reply_markup)
@@ -263,7 +263,7 @@ if __name__ == '__main__':
     dp.add_handler(RegexHandler("^👨‍💻Profile$",profile))
     dp.add_handler(RegexHandler("^📈About$",about))
     dp.add_handler(RegexHandler("^💣Withdraw$",withdraw))
-    dp.add_handler(RegexHandler("^🧑‍💻 Support$",support))
+    dp.add_handler(RegexHandler("^🧰Support$",support))
     dp.add_handler(RegexHandler("^👥Referral$",ref))
     dp.add_handler(RegexHandler("^💰Balance$",bal))
     dp.add_handler(RegexHandler("^Total_users$",users))
