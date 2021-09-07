@@ -109,7 +109,7 @@ def extra(update, context): #команда
     if update.message.chat.type == 'private':
         user = str(update.message.chat.username)
         if data["process"][user] == 'Continue':
-            msg = "👋Hey {}".format(user) + "\n\n➡️Lets get you started:\n🔷Join [Youtube Channel]({})".format(tgk) + "\n🔷Join [Telegram Group]({})".format(tgc) + "\n🔷Follow us on [Twitter]({})".format(tw) + "\n\n⚠️Note: _We'll check your all information manually\._\n" + "_So complete all tasks properly then click_ *\"Completed✅\"*"
+            msg = "👋Hey {}".format(user) + "\n\n➡️Lets get you started:\n🔷Join [Youtube Channel]({})".format(tgk) + "\n🔷Join [Telegram Group]({})".format(tgc) + "\n🔷Follow us on [Twitter]({})".format(tw) + "\n\n⚠️Note: _We'll check your all information manually\._\n" + "_So complete all tasks properly then click_ *\"Completed✅\"*\n\n_If you click on completed without having executed the tasks you will not be able to withdraw token even if the bot grants it to you because our team checks thoroughly before validating the transfer to your bep20 address\._\n"
             reply_markup = ReplyKeyboardMarkup(completed_key,resize_keyboard=True)
             update.message.reply_text(msg,parse_mode= 'MarkdownV2',disable_web_page_preview=True,reply_markup=reply_markup)
             data['process'][user] = "Completed"
