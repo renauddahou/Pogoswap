@@ -123,6 +123,13 @@ def extra(update, context): #команда
             reply_markup = ReplyKeyboardRemove(bool = False)
             update.message.reply_text(started_msg,parse_mode= 'MarkdownV2',disable_web_page_preview=True,reply_markup=reply_markup)
         elif data["process"][user] == 'twitter':
+            msg = "⚠️Then submit your Youtube username with @:"
+            data['Youtube'][user] = update.message.text
+            data['process'][user] = 'Youtube'
+            json.dump(data,open('users.json','w'))
+            #json.dump(data,open('users2.json','w'))
+            update.message.reply_text(msg)    
+        elif data["process"][user] == 'Youtube':
             msg = "📧Please type below your E-mail:"
             data['twitter'][user] = update.message.text
             data['process'][user] = 'mail'
@@ -202,7 +209,7 @@ def get_file(update, context): #команда
                 refrrd = 0
                 if i in data['referred']:
                     refrrd = data['referred'][i]
-                d = "{},{},{},{},{},{},{}\n".format(i,u,data['twitter'][u],data['bep20'][u],data['mail'][u],refrrd,data['ref'][u])
+                d = "{},{},{},{},{},{},{}\n".format(i,u,data['twitter'][u],data['Youtube'][u],data['bep20'][u],data['mail'][u],refrrd,data['ref'][u])
                 f.write(d)
                 
             f.close()
