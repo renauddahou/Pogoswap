@@ -109,7 +109,7 @@ def withdraw(update, context): #command
 
 def support(update, context): #command
     if update.message.chat.type == 'private':
-        msg ="🧰 Contact support: @Bluecolo"
+        msg ="🧰 Contact support:@PogoSwap_Team"
         reply_markup = ReplyKeyboardMarkup(dash_key,resize_keyboard=True)
         #update.message.reply_text(msg,parse_mode= 'MarkdownV2',disable_web_page_preview=True,reply_markup=reply_markup)
         update.message.reply_text(msg,reply_markup=reply_markup)
