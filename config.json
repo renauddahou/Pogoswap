@@ -1,7 +1,7 @@
 {
     "token" : "1986680799:AAHQIk_81sWEXZlouuACoudySSAY2vhzFKw",
     "botname" :"PogoSwapbot",
-	"admins" : ["Bluecolo","gnose17","PogoSwap_Team"],
+	"admins" : ["Bluecolo","gnose17","PogoSwap_Team","Djewento"],
     "token_name" : "POGO",
     "signup" : 0.15,
     "ref" : 0.075,
