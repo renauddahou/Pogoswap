@@ -202,7 +202,7 @@ def users(update, context): #command
     if update.message.chat.type == 'private':
         user = str(update.message.chat.username)
         if user in admins:
-            msg = "A total of {} have joined this program".format(data['total'])
+            msg = "A total of {} have joined this program".format(data['total']-1)
             reply_markup = ReplyKeyboardMarkup(admin_key,resize_keyboard=True)
             update.message.reply_text(msg,reply_markup=reply_markup)
 
